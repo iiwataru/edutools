@@ -1,0 +1,20 @@
+.result{
+	margin:40px auto;
+}
+.word{
+	color: #333333;
+}
+.used{
+	text-decoration:line-through;
+	color: #999999;
+}
+.ambiguous{
+	text-decoration:none;
+	color: #ff6600;
+}
+.result ul{
+	padding-left: 20px;
+}
+.mark{
+	background-color: yellow;
+}

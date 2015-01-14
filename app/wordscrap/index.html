@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+
+	<title>語順シャッフル</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/default.css" />
+	<link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../../lib/bootstrap/css/sticky-footer.css" />
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../../index.html">教育用ツール集</a>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+
+	<div class="page-header">
+		<h1>語順シャッフル</h1>
+	</div>
+
+	<blockquote>
+		<p>入力した文章の単語順をバラバラにします。</p>
+		<footer>ショートカット 実行:Shift+Enter クリア:Shift+Delete</footer>
+	</blockquote>
+
+	<textarea id="text_in"  class="form-control" rows="4" placeholder="文章を入力"></textarea>
+
+	<div class="row">
+		<div class="col-md-12">
+			<button class="btn btn-default" id="submit">実行</button>
+			<button class="btn btn-default" id="clear">クリア</button>
+		</div>
+	</div>
+
+	<div class="result">
+		<textarea id="text_out" class="form-control" rows="8" placeholder="実行結果"></textarea>
+	</div>
+
+</div>
+
+<div id="footer">
+	<div class="container">
+		<p class="text-muted">(c) 2015 iida wataru</p>
+	</div>
+</div>
+
+<!-- JavaScript -->
+<script src="../../lib/jquery/jquery-1.11.0.min.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/wordscrap.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-13069418-6', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
