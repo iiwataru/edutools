@@ -100,19 +100,28 @@ var WordScrap;
 	 */
 	WordScrap.prototype._execute = function() {
 
-		// 入力テキストを抽出し、不要な文字を削除する
+		// 入力テキストを抽出
 		var text = $('#text_in').val();
+
+		// 疑問文かどうか
+		var isQuestion = text.indexOf('?', 0) >= 0;
+
+		// 不要な文字を削除する
 		text = $.trim(text);
-		text = text.replace(/\.$/,'');
+		text = text.replace(/[\.\?]$/,'');
 		text = text.replace(/[ 　]+/gi,' ');
 
 		// 語順を並べ替える
 		var words = text.split(' ');
 		var wordsSuffled = this._shuffle(words);
 
+		// 終端文字
+		var terminator = isQuestion ? '?' : '.';
+		wordsSuffled.push(terminator);
+
 		// 結果を出力し、全選択する
 		var separator = ' / ';
-		$('#text_out').val( wordsSuffled.join(separator) );
+		$('#text_out').val( '[ ' + wordsSuffled.join(separator) + ' ]');
 		$('#text_out').select();
 	};
 
