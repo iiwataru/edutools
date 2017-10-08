@@ -324,6 +324,7 @@
 			$('#displayFormula').each(function(i){
 				var obj = $(this);
 				obj.css({"font-size": fontSizeSmall});
+				obj.css({"line-height": fontSizeMidium});
 			});
 			$('#displayScore span').each(function(i){
 				var obj = $(this);
