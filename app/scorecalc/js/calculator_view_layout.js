@@ -4,25 +4,25 @@
 	 * コンストラクタ
 	 */
 	CalculatorViewLayout = function() {
-		
+
 		/*
 		 * メンバ変数
 		 */
 		this._pxGrid = {width: 0, height: 0};
-		
+
 		// 初期処理
 		this._initialize();
-		
+
 	};
 
 	/**
 	 * 定数宣言
 	 */
 	CalculatorViewLayout.Config = {
-		
+
 		pxMargin: {top: 8, right: 8, bottom: 8, left: 8},
 		grids: {width: 60, height: 73},
-		
+
 		contents: {
 			displayFormula: {
 				layout: {
@@ -53,7 +53,7 @@
 						pxPadding: {top: 2, right: 2, bottom: 2, left: 2}
 					}
 				},
-				
+
 				valueBaseScore: {
 					layout: {
 						grids: {top: 2, left: 0, width: 14, height: 6},
@@ -196,30 +196,30 @@
 		}
 
 	};
-	
+
 	/**
 	 * メソッド宣言
 	 */
 	CalculatorViewLayout.prototype = {
-		
+
 		/**
 		 * 初期処理
 		 */
 		_initialize: function() {
-			
+
 			// サイズセット
 			this._setSize();
-			
+
 			// 描画後に表示させる
 			$('body').css({visibility: 'visible'});
-			
+
 			// 画面リサイズイベント登録
 //			$(window).bind('resize', this, function(e){
 //				e.data._setSize();
 //			});
-			
+
 		},
-		
+
 		/**
 		 * 値取得
 		 */
@@ -236,7 +236,7 @@
 			this._pxGrid.height = (document.documentElement.clientHeight - this._getValue(config.pxMargin.top) - this._getValue(config.pxMargin.bottom)) / this._getValue(config.grids.height);
 			this._render();
 		},
-		
+
 		/**
 		 * レイアウト取得
 		 */
@@ -249,12 +249,12 @@
 				height: this._pxGrid.height * this._getValue(config.grids.height) - this._getValue(config.pxPadding.left) - this._getValue(config.pxPadding.right),
 			};
 		},
-		
+
 		/**
 		 * 描画
 		 */
 		_render: function() {
-			
+
 			/*
 			 * 大枠
 			 */
@@ -306,15 +306,51 @@
 			$('#calculator #buttonMode').css( this._getLayout('calculator.buttonMode') );
 			$('#calculator #buttonBack').css( this._getLayout('calculator.buttonBack') );
 			$('#calculator #buttonNext').css( this._getLayout('calculator.buttonNext') );
-			
+
 			$('.button').each(function(i){
 				var obj = $(this);
 				obj.css({"line-height": obj.css("height")});	// ボタン文字を高さ中央揃え
 			});
-			
-			
+
+			/*
+			 * 文字サイズ調整
+			 */
+			var btnHeight = $('#button1').height();
+			var fontSizeXLarge = (btnHeight * 0.45) + 'px';
+			var fontSizeLarge = (btnHeight * 0.35) + 'px';
+			var fontSizeMidium = (btnHeight * 0.3) + 'px';
+			var fontSizeSmall = (btnHeight * 0.2) + 'px';
+
+			$('#displayFormula').each(function(i){
+				var obj = $(this);
+				obj.css({"font-size": fontSizeSmall});
+			});
+			$('#displayScore span').each(function(i){
+				var obj = $(this);
+				obj.css({"font-size": fontSizeSmall});
+			});
+			$('#valueBaseScore').each(function(i){
+				var obj = $(this);
+				obj.css({"font-size": fontSizeMidium});
+			});
+			$('#values span').each(function(i){
+				var obj = $(this);
+				obj.css({"font-size": fontSizeMidium});
+			});
+			$('#displayAverage').each(function(i){
+				var obj = $(this);
+				obj.css({"font-size": fontSizeSmall});
+			});
+			$('.btn-digit').each(function(i){
+				var obj = $(this);
+				obj.css({"font-size": fontSizeXLarge});
+			});
+			$('.btn-control').each(function(i){
+				var obj = $(this);
+				obj.css({"font-size": fontSizeLarge});
+			});
+
 		}
 
 	};
-
 })();
