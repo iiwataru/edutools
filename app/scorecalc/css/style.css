@@ -5,11 +5,6 @@ body {
 	visibility: hidden;
 }
 
-html,body{
-	overflow: hidden;
-	height: 100%;
-}
-
 div#alert {
 	display: none;
 	position: absolute;
